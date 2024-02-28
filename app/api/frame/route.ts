@@ -13,12 +13,16 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
 
   if (isValid) {
     // accountAddress = message.interactor.verified_accounts[0];
+  } else {
     accountAddress = "0x934d4c153998a72AAb89Ad3eB53fDeccCf781fB2"
-
-    const url = 'https://mainnet.base.org';
-    const provider = new ethers.providers.JsonRpcProvider(url);
-    transactionCount = await provider.getTransactionCount(accountAddress);
   }
+
+  console.log("Account address: " + accountAddress);
+  
+  const url = 'https://mainnet.base.org';
+  const provider = new ethers.providers.JsonRpcProvider(url);
+  transactionCount = await provider.getTransactionCount(accountAddress);
+  console.log("Transaction count: " + transactionCount);
 
   if (message?.button === 3) {
     return NextResponse.redirect(
