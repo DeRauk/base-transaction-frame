@@ -1,20 +1,23 @@
 import { FrameRequest, getFrameMessage, getFrameHtmlResponse } from '@coinbase/onchainkit/frame';
 import { NextRequest, NextResponse } from 'next/server';
 import { NEXT_PUBLIC_URL } from '../../config';
+import { ethers } from "ethers";
 
 async function getResponse(req: NextRequest): Promise<NextResponse> {
   let accountAddress: string | undefined = '';
   let text: string | undefined = '';
+  let transactionCount: number | undefined = 0;
 
   const body: FrameRequest = await req.json();
   const { isValid, message } = await getFrameMessage(body, { neynarApiKey: 'NEYNAR_ONCHAIN_KIT' });
 
   if (isValid) {
-    accountAddress = message.interactor.verified_accounts[0];
-  }
+    // accountAddress = message.interactor.verified_accounts[0];
+    accountAddress = "0x934d4c153998a72AAb89Ad3eB53fDeccCf781fB2"
 
-  if (message?.input) {
-    text = message.input;
+    const url = 'https://mainnet.base.org';
+    const provider = new ethers.providers.JsonRpcProvider(url);
+    transactionCount = await provider.getTransactionCount(accountAddress);
   }
 
   if (message?.button === 3) {
@@ -28,7 +31,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     getFrameHtmlResponse({
       buttons: [
         {
-          label: `Story: ${text} 🌲🌲`,
+          label: `Story: ${transactionCount} 🌲🌲`,
         },
       ],
       image: {
