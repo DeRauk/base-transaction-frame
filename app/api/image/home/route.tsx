@@ -7,12 +7,12 @@ export async function GET() {
     (
       <div
         style={{
-          fontSize: 40,
+          fontSize: 30,
           color: 'black',
           background: 'white',
           width: '100%',
           height: '100%',
-          padding: '50px 200px',
+          padding: '25px 100px',
           textAlign: 'center',
           justifyContent: 'center',
           alignItems: 'center',
@@ -22,8 +22,8 @@ export async function GET() {
       </div>
     ),
     {
-      width: 1200,
-      height: 630,
+      width: 600,
+      height: 600,
     },
   );
 }

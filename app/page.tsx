@@ -9,7 +9,7 @@ const frameMetadata = getFrameMetadata({
     }
   ],
   image: {
-    src: 'https://base-transaction-frame.vercel.app/api/images/home',
+    src: 'https://base-transaction-frame.vercel.app/api/images/home.png',
     aspectRatio: '1:1',
   },
   postUrl: 'https://base-transaction-frame.vercel.app/api/frame',
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'derauk.xyz',
     description: 'LFG',
-    images: ['https://base-transaction-frame.vercel.app/api/image/home'],
+    images: ['https://base-transaction-frame.vercel.app/api/image/home.png'],
   },
   other: {
     ...frameMetadata,
