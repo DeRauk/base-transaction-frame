@@ -16,11 +16,11 @@ const frameMetadata = getFrameMetadata({
 });
 
 export const metadata: Metadata = {
-  title: 'derauk.xyz',
+  title: 'base-transaction-frame.vercel.app',
   description: 'LFG',
   openGraph: {
-    title: 'derauk.xyz',
-    description: 'LFG',
+    title: 'base-transaction-frame.vercel.app',
+    description: 'See how many base transactions you have!',
     images: [`${NEXT_PUBLIC_URL}/home.png`],
   },
   other: {
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      <h1>derauk.xyz</h1>
+      <h1>base-transaction-frame.vercel.app</h1>
     </>
   );
 }
