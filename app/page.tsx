@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'derauk.xyz',
     description: 'LFG',
-    images: ['https://base-transaction-frame.vercel.app/api/images/home'],
+    images: ['https://base-transaction-frame.vercel.app/api/image/home'],
   },
   other: {
     ...frameMetadata,
