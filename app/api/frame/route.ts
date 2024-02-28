@@ -5,7 +5,6 @@ import { ethers } from "ethers";
 
 async function getResponse(req: NextRequest): Promise<NextResponse> {
   let accountAddress: string | undefined = '';
-  let text: string | undefined = '';
   let transactionCount: number | undefined = 0;
 
   const body: FrameRequest = await req.json();
@@ -32,7 +31,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
         },
       ],
       image: {
-        src: `${NEXT_PUBLIC_URL}/park-1.png`,
+        src: 'https://base-transaction-frame.vercel.app/api/images/home',
       },
       postUrl: 'https://base-transaction-frame.vercel.app/api/frame',
     }),
