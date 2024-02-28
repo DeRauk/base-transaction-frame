@@ -31,7 +31,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
         },
       ],
       image: {
-        src: 'https://base-transaction-frame.vercel.app/home.png',
+        src: 'https://base-transaction-frame.vercel.app/api/image/count?count=' + transactionCount,
       },
       postUrl: 'https://base-transaction-frame.vercel.app/api/frame',
     }),
