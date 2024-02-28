@@ -1,1 +1,1 @@
-export const NEXT_PUBLIC_URL = 'https://zizzamia.xyz';
+export const NEXT_PUBLIC_URL = 'https://base-transaction-frame.vercel.app';

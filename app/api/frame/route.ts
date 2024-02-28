@@ -12,28 +12,23 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
 
   if (isValid) {
     accountAddress = message.interactor.verified_accounts[0];
-  } else {
-    accountAddress = "0x934d4c153998a72AAb89Ad3eB53fDeccCf781fB2"
-  }
 
-  console.log("Account address: " + accountAddress);
-  
-  const url = 'https://mainnet.base.org';
-  const provider = new ethers.providers.JsonRpcProvider(url);
-  transactionCount = await provider.getTransactionCount(accountAddress);
-  console.log("Transaction count: " + transactionCount);
+    console.log("Account address: " + accountAddress);
+    
+    const url = 'https://mainnet.base.org';
+    const provider = new ethers.providers.JsonRpcProvider(url);
+    transactionCount = await provider.getTransactionCount(accountAddress);
+    console.log("Transaction count: " + transactionCount);
+  } else {
+    transactionCount = 0;
+  }
 
   return new NextResponse(
     getFrameHtmlResponse({
-      buttons: [
-        {
-          label: `Story: ${transactionCount} 🌲🌲`,
-        },
-      ],
       image: {
-        src: 'https://base-transaction-frame.vercel.app/api/image/count?count=' + transactionCount,
+        src: `${NEXT_PUBLIC_URL}/api/image/count?count=` + transactionCount,
       },
-      postUrl: 'https://base-transaction-frame.vercel.app/api/frame',
+      postUrl: `${NEXT_PUBLIC_URL}/api/frame`,
     }),
   );
 }
