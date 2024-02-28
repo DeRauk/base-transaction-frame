@@ -12,7 +12,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   const { isValid, message } = await getFrameMessage(body, { neynarApiKey: 'NEYNAR_ONCHAIN_KIT' });
 
   if (isValid) {
-    // accountAddress = message.interactor.verified_accounts[0];
+    accountAddress = message.interactor.verified_accounts[0];
   } else {
     accountAddress = "0x934d4c153998a72AAb89Ad3eB53fDeccCf781fB2"
   }
@@ -23,13 +23,6 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   const provider = new ethers.providers.JsonRpcProvider(url);
   transactionCount = await provider.getTransactionCount(accountAddress);
   console.log("Transaction count: " + transactionCount);
-
-  if (message?.button === 3) {
-    return NextResponse.redirect(
-      'https://www.google.com/search?q=cute+dog+pictures&tbm=isch&source=lnms',
-      { status: 302 },
-    );
-  }
 
   return new NextResponse(
     getFrameHtmlResponse({
